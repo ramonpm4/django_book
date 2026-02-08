@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.index),
-    path("<int:id>", views.book_detail, name='book-detail') # digo id porque en la view function yo defini que recibiría id.
+    path("<slug:slug>", views.book_detail, name='book-detail') # digo id porque en la view function yo defini que recibiría id.
 ]
 

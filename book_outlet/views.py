@@ -12,13 +12,13 @@ def index(request) -> HttpResponse:
     })
     
 
-def book_detail(request, id) -> HttpResponse:
+def book_detail(request, slug) -> HttpResponse:
     # try: 
     #     book = Book.objects.get(pk=id) # pk: primary key
     # except:
     #     raise Http404()
     
-    book = get_object_or_404(Book, pk=id) # Es lo mismo que lo de arriba.
+    book = get_object_or_404(Book, slug=slug) # Es lo mismo que lo de arriba.
     return render(request, 'book_outlet/book_detail.html', {
         'title': book.title,
         'author': book.author,
