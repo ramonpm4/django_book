@@ -8,7 +8,10 @@ All books
 <ul>
     {% for book in books %}
     <li>
+        <a href="{% url 'book-detail' book.id %}">
         {{ book.title }} Rating: {{ book.rating }}
+        </a>
+
     </li>
     {% endfor %}
 </ul>
