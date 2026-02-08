@@ -6,12 +6,10 @@ All books
 
 {% block content %}
 <ul>
+    {% for book in books %}
     <li>
-        {% for book in books %}
-        <li>
-            {{ book.title }} Rating: {{ book.rating }}
-        </li>
-        {% endfor %}
+        {{ book.title }} Rating: {{ book.rating }}
     </li>
+    {% endfor %}
 </ul>
 {% endblock %}
