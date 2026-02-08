@@ -14,5 +14,12 @@ All books
 
     </li>
     {% endfor %}
+
+    <hr>
+    <p>The total number of books: {{number_books}}</p>
+    <p>The average rating: {{avg_rating.rating__avg}}</p>
+    <p>The min rating: {{avg_rating.rating__min}}</p>
+    <p>The max rating: {{avg_rating.rating__max}}</p>
+
 </ul>
 {% endblock %}

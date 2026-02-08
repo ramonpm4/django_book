@@ -1,14 +1,20 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Avg, Max, Min
 
 from .models import Book
 
 # Create your views here.
 
 def index(request) -> HttpResponse:
-    books = Book.objects.all()
+    books = Book.objects.all().order_by('title') # El unico llamado a la DB que hago
+    number_books = books.count() # Esto se aplica sobre el object
+    avg_rating = books.aggregate(Avg('rating'), Min('rating'), Max('rating'))
+    
     return render(request, 'book_outlet/index.html', {
-        'books': books
+        'books': books,
+        'number_books': number_books,
+        'avg_rating': avg_rating
     })
     
 
