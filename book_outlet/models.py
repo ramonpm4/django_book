@@ -7,6 +7,12 @@ from django.utils.text import slugify
 class Country(models.Model):
     name = models.CharField(max_length=50)
     code = models.CharField(max_length=6)
+    
+    def __str__(self) -> str:
+        return f"{self.name} ({self.code})"
+    
+    class Meta:
+        verbose_name_plural = 'Countries'
 
 
 class Adress(models.Model):
@@ -20,6 +26,8 @@ class Adress(models.Model):
 
     class Meta:
         verbose_name_plural = 'Adress Entries'
+        
+        
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
