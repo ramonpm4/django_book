@@ -4,6 +4,10 @@ from django.urls import reverse
 from django.utils.text import slugify
 # Create your models here.
 
+class Country(models.Model):
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=6)
+
 
 class Adress(models.Model):
     street = models.CharField(max_length=50)
