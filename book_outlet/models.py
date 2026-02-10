@@ -10,6 +10,9 @@ class Adress(models.Model):
     postal_code = models.CharField(max_length=6)
     city = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return f"{self.street} - {self.postal_code} - {self.city}"
+
 
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
